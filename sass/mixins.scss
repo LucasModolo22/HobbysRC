@@ -1,0 +1,10 @@
+@import "variables";
+
+@mixin background-default{
+    background: $main-color;
+}
+
+@mixin header-default{
+    height: $header-height;
+    background: $sub-color;
+}

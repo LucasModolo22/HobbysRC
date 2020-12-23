@@ -1,0 +1,59 @@
+@import "global";
+
+body{
+    @include background-default;
+    color: white;
+
+    .header{
+        @include header-default;
+        padding: 1rem;
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            .header-logo{
+                height: 100%;
+                .image-header-logo{
+                    height: 100%;
+                }
+            }
+            .header-searchBar{
+                height: 80%;
+                width: 50%;
+                border-radius: 1.3rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: $search-color;
+                *{
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                }
+                .input-header-searchBar{
+                    color: white;
+                    width: 100%;
+                    height: 100%;
+                    background: none;
+                    border: none;
+
+                    &:focus-visible{
+                        outline: none;
+                    }
+                }
+            }
+            .header-menu{
+                display: flex;
+                justify-content: space-between;
+                li{
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
