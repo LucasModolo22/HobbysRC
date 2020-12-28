@@ -3149,48 +3149,70 @@ body {
     background: #242526;
     padding: 1rem; }
     body .header .container {
-      width: 70%;
+      width: 75%;
       margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 100%; }
       body .header .container .header-logo {
-        height: 100%; }
-        body .header .container .header-logo .image-header-logo {
-          height: 100%; }
-      body .header .container .header-menu {
+        height: 100%;
         display: flex;
-        justify-content: space-between; }
-        body .header .container .header-menu li {
-          list-style-type: none;
-          padding: 0;
-          margin: 0;
-          margin-left: 1rem;
-          margin-right: 1rem;
-          font-weight: bold; }
+        justify-content: space-between;
+        align-items: center; }
+        body .header .container .header-logo .image-header-logo {
+          height: 100%;
+          cursor: pointer; }
+      body .header .container .header-menu {
+        display: none; }
+        body .header .container .header-menu .header-menu-container {
+          display: flex;
+          justify-content: space-between; }
+          body .header .container .header-menu .header-menu-container li {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            font-weight: bold; }
       body .header .container .header-searchBar {
         height: 90%;
         width: 60%;
         border-radius: 1.3rem;
+        background: #3A3B3C;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        background: #3A3B3C; }
-        body .header .container .header-searchBar .input-header-searchBar {
-          margin-left: 1rem;
-          color: white;
+        justify-content: space-between; }
+        body .header .container .header-searchBar:focus-within {
+          transition: all .2s;
+          -webkit-box-shadow: inset 0px 0px 0px 2px white;
+          -moz-box-shadow: inset 0px 0px 0px 2px white;
+          box-shadow: inset 0px 0px 0px 2px white; }
+        body .header .container .header-searchBar .header-searchBar-container {
+          display: flex;
+          align-items: center;
           width: 100%;
-          height: 100%;
-          background: none;
-          border: none; }
-          body .header .container .header-searchBar .input-header-searchBar:focus-visible {
-            outline: none; }
-          body .header .container .header-searchBar .input-header-searchBar::placeholder {
-            color: white; }
-        body .header .container .header-searchBar .icon-search {
-          margin-right: 1rem;
-          color: white; }
+          padding: 1rem; }
+          body .header .container .header-searchBar .header-searchBar-container .input-header-searchBar {
+            color: white;
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none; }
+            body .header .container .header-searchBar .header-searchBar-container .input-header-searchBar:focus-visible {
+              outline: none; }
+            body .header .container .header-searchBar .header-searchBar-container .input-header-searchBar::placeholder {
+              color: white; }
+          body .header .container .header-searchBar .header-searchBar-container .header-searchBar-icon-container {
+            height: 100%;
+            display: flex;
+            align-items: center; }
+            body .header .container .header-searchBar .header-searchBar-container .header-searchBar-icon-container .icon-search {
+              color: white;
+              cursor: pointer; }
+              body .header .container .header-searchBar .header-searchBar-container .header-searchBar-icon-container .icon-search:hover {
+                transition: all .1s;
+                opacity: 0.5; }
       body .header .container .header-user {
         font-size: 1.5rem;
         display: flex;
@@ -3200,14 +3222,15 @@ body {
           margin-right: 1rem;
           display: grid;
           grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr 1fr;
-          align-items: center; }
+          grid-template-rows: 1fr;
+          align-items: center;
+          cursor: pointer; }
           body .header .container .header-user .car-container .cart-icon {
             grid-column: 1 / span 1;
-            grid-row: 2 / span 1; }
+            grid-row: 1 / span 1; }
           body .header .container .header-user .car-container .cart-number-container {
             grid-column: 1 / span 1;
-            grid-row: 2 / span 1;
+            grid-row: 1 / span 1;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 1fr); }
@@ -3224,19 +3247,32 @@ body {
                 font-size: 1rem;
                 font-weight: bold;
                 color: white;
-                margin-bottom: -0.25rem; }
+                vertical-align: middle; }
         body .header .container .header-user .user-content {
-          margin-left: 1rem;
           margin-right: 1rem;
           display: flex;
-          justify-content: space-between;
           align-items: center; }
-          body .header .container .header-user .user-content .user-name {
-            font-size: 1rem;
-            margin: 0;
-            padding: 0;
-            font-weight: bold;
-            margin-right: 1rem;
-            margin-left: 1rem; }
+          body .header .container .header-user .user-content .user-content-class:not(.user-active) {
+            display: none; }
+          body .header .container .header-user .user-content .user-content-class .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; }
+            body .header .container .header-user .user-content .user-content-class .content .user-name {
+              font-size: 1rem;
+              margin: 0;
+              padding: 0;
+              font-weight: bold;
+              margin-right: 1rem;
+              margin-left: 1rem;
+              cursor: pointer; }
+            body .header .container .header-user .user-content .user-content-class .content .user-icon {
+              cursor: pointer; }
+              body .header .container .header-user .user-content .user-content-class .content .user-icon::before {
+                font-size: 1.8rem; }
+      body .header .container .header-bar {
+        display: none; }
+        body .header .container .header-bar .icon-bar {
+          font-size: 1.5rem; }
 
 /*# sourceMappingURL=style.css.map */

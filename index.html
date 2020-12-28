@@ -13,15 +13,22 @@
         <div class="container">
             <div class="header-logo">
                 <img src="./img/Hobbysrc_Logo.png" class="image-header-logo">
+                <img src="./img/Hobbysrc_Titulo.png" class="image-header-logo">
             </div>
-            <ul class="header-menu">
-                <li>HOME</li>
-                <li>SOBRE</li>
-                <li>CONTATO</li>
-            </ul>
+            <div class="header-menu">
+                <ul class="header-menu-container">
+                    <li>HOME</li>
+                    <li>SOBRE</li>
+                    <li>CONTATO</li>
+                </ul>
+            </div>
             <div class="header-searchBar">
-                <input type="text" placeholder="Buscar..." class="input-header-searchBar">
-                <i class="fas fa-search icon-search"></i>
+                <div class="header-searchBar-container">
+                    <input type="text" placeholder="Buscar..." class="input-header-searchBar">
+                    <div class="header-searchBar-icon-container">
+                        <i class="fas fa-search icon-search"></i>
+                    </div>
+                </div>
             </div>
             <div class="header-user">
                 <div class="car-container">
@@ -33,9 +40,24 @@
                     </div>
                 </div>
                 <div class="user-content">
-                    <i class="fas fa-user user-icon"></i>
-                    <p class="user-name">Lucas</p>
+                    <!-- user-active pra deixar visivel -->
+                    <div class="user-content-class user-active">
+                        <div class="content">
+                            <i class="fas fa-user user-icon"></i>
+                            <p class="user-name">Joselito</p>
+                        </div>
+                    </div>
+                    <!-- user-active pra deixar visivel -->
+                    <div class="user-content-class"> 
+                        <div class="content">
+                            <p class="user-name">Login</p>
+                            <i class="fas fa-sign-in-alt user-icon"></i>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="header-bar">
+                <i class="fas fa-bars icon-bar"></i>
             </div>
         </div>
     </header>

@@ -4,7 +4,184 @@
     background: $main-color;
 }
 
-@mixin header-default{
+@mixin header-config{
     height: $header-height;
     background: $sub-color;
+}
+
+@mixin header-default{
+    .header{
+        @include header-config;
+        padding: 1rem;
+        .container{
+            width: $header-width;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+
+            .header-logo{
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .image-header-logo{
+                    height: 100%;
+                    cursor: pointer;
+                }
+            }
+            .header-menu{
+                display: none;
+                .header-menu-container{
+                    display: flex;
+                    justify-content: space-between;
+                    li{
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                        margin-left: 1rem;
+                        margin-right: 1rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+            .header-searchBar{
+                height: 90%;
+                width: 60%;
+                border-radius: 1.3rem;
+                background: $search-color;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &:focus-within{
+                    transition: all .2s;
+                    -webkit-box-shadow:inset 0px 0px 0px 2px white;
+                    -moz-box-shadow:inset 0px 0px 0px 2px white;
+                    box-shadow:inset 0px 0px 0px 2px white;
+                }
+
+                .header-searchBar-container{
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    padding: 1rem;
+                    .input-header-searchBar{
+                        color: white;
+                        width: 100%;
+                        height: 100%;
+                        background: none;
+                        border: none;
+    
+                        &:focus-visible{
+                            outline: none;
+                        }
+    
+                        &::placeholder{
+                            color: white;
+                        }
+                    }
+                    .header-searchBar-icon-container{
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        .icon-search{
+                            color: white;
+                            cursor: pointer;
+
+                            &:hover{
+                                transition: all .1s;
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                }
+            } 
+            .header-user{
+                font-size: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                .car-container{
+                    margin-left: 1rem;
+                    margin-right: 1rem;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    align-items: center;
+                    cursor: pointer;
+                    .cart-icon{
+                        grid-column: 1 / span 1;
+                        grid-row: 1 / span 1;
+                    }
+
+                    .cart-number-container{
+                        grid-column: 1 / span 1;
+                        grid-row: 1 / span 1;
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-rows: repeat(3, 1fr);
+                        
+                        .cart-number-circle{
+                            grid-column: 3 / span 1;
+                            grid-row: 1 / span 1;
+                            background: #db2f19;
+                            margin-right: -0.5rem;
+                            margin-bottom: -0.25rem;
+                            text-align: center;
+                            border-radius: 50%;
+                            .cart-number{
+                                align-self: center;
+                                font-size: 1rem;
+                                font-weight: bold;
+                                color: white;
+                                vertical-align: middle;
+                            }
+                        }
+
+                       
+                    }
+                }
+                .user-content{
+                    margin-right: 1rem;
+                    display: flex;
+                    align-items: center;
+
+                    .user-content-class{
+                        &:not(.user-active){
+                            display: none;
+                        }
+                        .content{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .user-name{
+                                font-size: 1rem;
+                                margin: 0;
+                                padding: 0;
+                                font-weight: bold;
+                                margin-right: 1rem;
+                                margin-left: 1rem;
+                                cursor: pointer;
+                            }
+                            .user-icon{
+                                cursor: pointer;
+                                &::before{
+                                    font-size: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header-bar{
+                display: none;
+                .icon-bar{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
 }
