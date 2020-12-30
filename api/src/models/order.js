@@ -1,7 +1,43 @@
 'use strict'
-
 module.exports = (sequelize, DataTypes) => {
-  const user = sequelize.define('user', {
+  const order = sequelize.define('order', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.STRING(36),
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    status: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+      validate: {
+        isInt: true,
+      }
+    },
+    subTotal: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isInt: true,
+      }
+    },
+    shipping: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isInt: true,
+      }
+    },
+    total: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isInt: true,
+      }
+    },
     firstName: {
       allowNull: false,
       type: DataTypes.STRING(50),
@@ -16,11 +52,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true
       }
     },
-    mobile: {
-      allowNull: false,
-      unique: true,
-      type: DataTypes.INTEGER
-    },
     email: {
       allowNull: false,
       unique: true,
@@ -28,23 +59,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isEmail: true
       }
-    },
-    password: {
-      allowNull: false,
-      type: DataTypes.STRING(60)
-    },
-    admin: {
-      allowNull: false,
-      defaultValue: 0,
-      type: DataTypes.BOOLEAN
-    },
-    registeredAt: {
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-      type: DataTypes.DATE
-    },
-    lastLogin: {
-      type: DataTypes.DATE
     },
     address: {
       type: DataTypes.STRING(255),
@@ -81,25 +95,15 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isInt: true
       }
-    },
-    cpf: {
-      unique: true,
-      type: DataTypes.STRING(11),
-      validate: {
-        notEmpty: true
-      }
     }
   }, {})
-  user.associate = function(models) {
-    user.hasOne(models.cart, {
+  order.associate = function(models) {
+    order.belongsTo(models.user, {
       foreignKey: 'user_id'
     })
-    user.hasMany(models.order, {
-      foreignKey: 'user_id'
-    })
-    user.hasMany(models.product_review, {
-      foreignKey: 'user_id'
+    order.hasMany(models.order_item, {
+      foreignKey: 'order_id'
     })
   }
-  return user
+  return order
 }

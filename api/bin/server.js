@@ -1,19 +1,23 @@
-'use strict';
-
-const express = require('express')
-const bodyParser = require('body-parser')
-const db = require('../models')
+require('dotenv').config()
+const express = require('express');
+const app = require('../src/app');
+const db = require('../src/models');
+const fs = require('fs');
+const https = require('https');
  
-db.sequelize.sync()
-
-const app = express()
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
- 
-const port = process.env.PORT || 3000
- 
-app.listen(port, () => {
-    console.log(`Servidor rodando em ${port}`)
+db.sequelize.sync().then(() => {
+    console.log("[DB] - Connected")
+}).catch(error => {
+    console.log(`[DB] - Error!\n${error}`)
 })
-	
-module.exports = app
+
+var options = {
+    key: fs.readFileSync(__dirname + '/../bin/server.key'),
+    cert: fs.readFileSync(__dirname + '/../bin/server.cert')
+};
+
+https.createServer(options, app).listen(process.env.PORT, function () {
+    console.log("[HTTPS] - Listening on port " + process.env.PORT);
+});
+
+app.set('port', process.env.PORT);
